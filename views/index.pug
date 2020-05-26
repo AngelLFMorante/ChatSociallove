@@ -1,0 +1,52 @@
+<!-- aqui es toda el html la vista, que va a ser  provisional para ver si funciona todo-->
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title My chat app
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/css/index.css")
+        link(rel="stylesheet", href="/css/social.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css")
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css", integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk", crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous")
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous")
+        script(src="/scripts/registro.js")
+    body
+        //pug no hace falta etiquetas de html hay que cuidar la identación y los div se pueden ocultar.
+    div(class="container full-width")    
+        div(class="container-fluid-principal bg-footer")
+            h1(class="img-logo logo-h1") SOCIAL LOVE CHAT
+        //este id pertenece a un div, que pug los obvia, atributos entre parentesis
+        #welcome(class="full-height full-width")
+            //la ruta ahora está provisional
+            form#registro-form(action="/chat", method="POST")
+                h1(class="center") Bienvenido
+                //vamos a crear el input donde se introduce el usuario, pero este debería ser ya el usuario que nosotros ya tenermos.
+                p(class="center lighter p-form") Ingresa tus datos, porfavor:
+                input#username(type="text",name="username",placeholder="tu nombre aqui", required = true, class="full-width")
+                div
+                    //mismo name y esto sería en el sexo del usuario
+                    input#male(type="radio", name="sex",value="Male", checked=true)
+                    label(class="lighter", for="male") Hombre
+                    input#female(type="radio", name="sex",value="Female")
+                    label(class="lighter", for="female") Mujer
+                //se puede poner codigo, comprobar el estado de validado
+                if !validated   
+                    div#registro-warning(class="titilando")
+                        i#warning-icon(class="fas fa-exclamation-triangle") 
+                        small(class="lighter") El usuario ya existe
+                button#send-form(class="lighter") INGRESAR    
+        div(class="container-fluid")
+            footer(class="rounded p-4 mt-2 text-center bg-footer myfont")
+                div
+                    div(class="grid-contador")
+                        div(class="item5 footer-font-family")
+                            i(class="fa fa-user") &nbsp; Ángel Luis Fernández &nbsp; 
+                            i(class="fa fa-user") &nbsp; Alberto Molina &nbsp;
+                            i(class="fa fa-user") &nbsp; Carlos Fernández &nbsp;
+                br
+                p  &#169; 2020 2ºDAW        
+               

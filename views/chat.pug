@@ -1,0 +1,26 @@
+//la vista del chat
+<!DOCTYPE html>
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Chat
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/css/chat.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+        script(src="/socket.io/socket.io.js")
+        script(src="/scripts/chat.js")
+    body
+        #container.full-height.full-width  
+            #chat-area.full-width
+                #messages.full-height  
+                    #msg-list.full-width 
+                #users-list.full-height
+                    .full-width.full-height
+                        h2 Usuarios en línea
+                        #users
+            form#send-msg-form
+                textarea#message.lighter(name="message", placeholder="Rompe el hielo")
+                button#send-msg-btn
+                    i.fa.fa-paper-plane
